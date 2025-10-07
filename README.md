@@ -9,21 +9,10 @@ LeetCode-Problems/
 
 ## 📂 Problems
 
-| Folder: EASY | Problem Name |
+| Folder | Problem Name |
 |---------|---------------|
-|   Contains Duplicate    |
-|   
-|---------|---------------|
+| easy | Contains Duplicate |
 
-| Folder: MEDIUM | Problem Name |
-|---------|---------------|
-
-|---------|---------------|
-
-| Folder: HARD | Problem Name |
-|---------|---------------|
-
-|---------|---------------|
 
 ## 🛠️ About
 
