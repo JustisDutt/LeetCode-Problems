@@ -5,7 +5,9 @@ This repository contains my personal solutions to LeetCode problems, organized b
 ## 📂 Structure
 LeetCode-Problems/
 └── easy/
-└── contains-duplicate.py
+└── Medium/
+└── Hard/
+
 
 ## 📂 Problems
 
