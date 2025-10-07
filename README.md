@@ -14,6 +14,7 @@ LeetCode-Problems/
 | Folder | Problem Name |
 |---------|---------------|
 | easy | Contains Duplicate |
+| easy | Valid Anagram      |
 
 
 ## 🛠️ About
