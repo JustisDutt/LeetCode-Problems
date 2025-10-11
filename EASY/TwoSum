@@ -1,0 +1,23 @@
+import java.util.HashMap;
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        // use a hashmap<key, value>
+        // loop through nums. if target - nums[i] exists
+        // in the hashmap, return index of where that
+        // integer exists in the hashmap and nums[i]
+        // else add nums[i] to hashmap
+        // return null if no sum exists
+
+        HashMap<Integer, Integer> seen = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            if (seen.containsKey(target - nums[i])) {
+                return new 
+                int[]{ seen.get(target - nums[i]), i };
+            }
+            seen.put(nums[i], i);
+        }
+        return null;
+    }
+}
