@@ -1,0 +1,30 @@
+import java.util.*;
+
+class Solution {
+    // Create hash map<a-z, value 0> 
+    // loop through each string store in frequency of values in hashmap, do this by increasing value at the key location associated with that letter in the alphabet 
+    // take that hashmap and convert the values into an integer array,
+    // take another hashmap <integer array, list<strings>
+    // return values in hashmap
+
+    public List<List<String>> groupAnagrams(String[] strs) {
+
+        HashMap<String, List<String>> map = new HashMap<>();
+
+        for (String s : strs) {
+            int[] frequency = new int[26];
+
+            for (char c : s.toCharArray()) {
+                frequency[c - 'a']++;
+            }
+
+            // Convert frequency array to a String
+            String key = Arrays.toString(frequency);
+
+            // If key not found, make new list; otherwise, add to existing list
+            map.computeIfAbsent(key, k -> new ArrayList<>()).add(s);
+        }
+
+        return new ArrayList<>(map.values());
+    }
+}
