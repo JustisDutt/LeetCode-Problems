@@ -1,0 +1,28 @@
+import java.util.*;
+
+class Solution {
+    public int[] topKFrequent(int[] nums, int k) {
+        // create hashmap<integer, frequency>
+        // fill the map by counting each number
+        // create a priority queue (max heap) by frequency
+        // add all map entries into the heap
+        // pop top k and collect keys
+        // return the result array
+
+        Map<Integer, Integer> frequency = new HashMap<>();
+        for (int num : nums) {
+            frequency.put(num, frequency.getOrDefault(num, 0) + 1);
+        }
+
+        PriorityQueue<Map.Entry<Integer, Integer>> heap =
+            new PriorityQueue<>((a, b) -> Integer.compare(b.getValue(), a.getValue()));
+
+        heap.addAll(frequency.entrySet());
+
+        int[] result = new int[k];
+        for (int i = 0; i < k && !heap.isEmpty(); i++) {
+            result[i] = heap.poll().getKey();
+        }
+        return result;
+    }
+}
