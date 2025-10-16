@@ -1,11 +1,11 @@
 import java.util.*;
 
 class Solution {
-    // Create hash map<a-z, value 0> 
-    // loop through each string store in frequency of values in hashmap, do this by increasing value at the key location associated with that letter in the alphabet 
-    // take that hashmap and convert the values into an integer array,
-    // take another hashmap <integer array, list<strings>
-    // return values in hashmap
+      // Create hashmap <String key, List<String> value>
+        // Loop through each string and count letter frequencies
+        // Convert the frequency array into a String key
+        // Add the string to the list at that key (make new list if it doesn’t exist)
+        // Return all the lists of grouped anagrams
 
     public List<List<String>> groupAnagrams(String[] strs) {
 
