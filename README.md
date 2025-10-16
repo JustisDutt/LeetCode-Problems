@@ -15,6 +15,8 @@ LeetCode-Problems/
 |---------|---------------|
 | easy | Contains Duplicate |
 | easy | Valid Anagram      |
+| easy | Two Sum            |
+| Medium | Group Anagrams   |
 
 
 ## 🛠️ About
