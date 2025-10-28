@@ -1,0 +1,52 @@
+class Solution {
+// Encode:
+// 1. For each string, read its length
+// 2. Append the length, add a '#' delimiter, and then the string itself
+// 3. Repeat for all strings
+//   ex. len#stringlen#stringlen#string...
+
+// Decode:
+// 1. Read characters until you reach a '#' to get the length of the next string
+// 2. Convert that length to an integer
+// 3. Read that many characters to get the original string
+// 4. Repeat until the end of the encoded string
+// 5. Return the list of decoded strings
+    public String encode(List<String> strs) {
+
+        StringBuilder sb = new StringBuilder();
+
+        for(String s: strs) {
+            sb.append(s.length()).append('#').append(s);
+        }
+        return sb.toString();
+    }
+
+    public List<String> decode(String str) {
+
+         List<String> res = new ArrayList<>();
+         int i = 0;
+
+    while (i < str.length()) {
+        // 1. find the separator '#'
+        int j = i;
+        while (str.charAt(j) != '#') {
+            j++;
+        }
+
+        // 2. parse the length between i and j
+        int len = Integer.parseInt(str.substring(i, j));
+
+        // 3. extract the string that follows the '#'
+        int start = j + 1;
+        int end = start + len;
+        String word = str.substring(start, end);
+        res.add(word);
+
+        // 4. move i to the start of the next record
+        i = end;
+
+    }
+
+    return res;
+    }
+}
