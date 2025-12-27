@@ -1,28 +1,48 @@
-import java.util.*;
-
 class Solution {
+    /*
+          1) Build a frequency map: number -> how many times it appears.
+      2) Use a min-heap (PriorityQueue) that stores (number, frequency).
+         The heap is ordered by frequency ascending, so the smallest frequency is on top.
+      3) Push each (number, frequency) into the heap.
+         If the heap grows larger than k, remove the smallest frequency item.
+         This keeps only the best k candidates in the heap.
+      4) Pop everything from the heap into an array and return it.
+         The order of the result does not matter unless the problem says it does.
+    */
+    record Pair(int val, int freq) {}
+
     public int[] topKFrequent(int[] nums, int k) {
-        // create hashmap<integer, frequency>
-        // fill the map by counting each number
-        // create a priority queue (max heap) by frequency
-        // add all map entries into the heap
-        // pop top k and collect keys
-        // return the result array
 
-        Map<Integer, Integer> frequency = new HashMap<>();
-        for (int num : nums) {
-            frequency.put(num, frequency.getOrDefault(num, 0) + 1);
+        // 1) Count frequencies
+        HashMap<Integer, Integer> freqMap = new HashMap<>();
+        for (int n : nums) {
+            freqMap.put(n, freqMap.getOrDefault(n, 0) + 1);
         }
 
-        PriorityQueue<Map.Entry<Integer, Integer>> heap =
-            new PriorityQueue<>((a, b) -> Integer.compare(b.getValue(), a.getValue()));
+        // 2) Min-heap ordered by frequency (then value as a tie-breaker)
+        PriorityQueue<Pair> minHeap = new PriorityQueue<>(
+            Comparator.comparingInt(Pair::freq).thenComparingInt(Pair::val)
+        );
 
-        heap.addAll(frequency.entrySet());
+        // 3) Keep heap size at most k
+        for (Map.Entry<Integer, Integer> entry : freqMap.entrySet()) {
+            Pair p = new Pair(entry.getKey(), entry.getValue());
+            minHeap.offer(p);
 
-        int[] result = new int[k];
-        for (int i = 0; i < k && !heap.isEmpty(); i++) {
-            result[i] = heap.poll().getKey();
+            if (minHeap.size() > k) {
+                minHeap.poll();
+            }
         }
-        return result;
+
+        // 4) Extract results
+        int size = Math.min(k, minHeap.size());
+        int[] ans = new int[size];
+
+        for(int i = 0; i < size; i++) {
+            ans[i] = minHeap.poll().val();
+        }
+
+        return ans;
     }
 }
+
