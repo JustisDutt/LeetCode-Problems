@@ -1,12 +1,12 @@
-import java.util.Arrays;
-
 class Solution {
+
     // int[] result = new int[nums.length];
     // fill result with 1s
     // int pre = 1, post = 1
     // loop left to right: set result[i] = pre, then update pre *= nums[i]
     // loop right to left: multiply result[i] *= post, then update post *= nums[i]
     // return result
+
     public int[] productExceptSelf(int[] nums) {
         int[] result = new int[nums.length];
         Arrays.fill(result, 1);
