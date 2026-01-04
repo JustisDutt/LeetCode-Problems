@@ -21,6 +21,7 @@ LeetCode-Problems/
 | Medium | Encode Decode Strings |
 | Medium | Product of Array Except Self |
 | Medium | Valid Sudoku |
+| Medium | Longest Consecutive Sequence |
 
 
 ## 🛠️ About
