@@ -1,0 +1,47 @@
+class Solution {
+    // LOTS OF HASHSETS
+    // need 9 sets for rows, 9 sets for cols, 9 sets for boxes
+    // idea: scan every cell, and "claim" each number in its row/col/box set
+    // if a number is already claimed in any of those, it's invalid
+
+    public boolean isValidSudoku(char[][] board) {
+
+        // 3 arrays of sets (each index is a row / col / box)
+        Set<Character>[] rows = new HashSet[9];
+        Set<Character>[] cols = new HashSet[9];
+        Set<Character>[] boxes = new HashSet[9];
+
+        // make all 27 hashsets (9 rows + 9 cols + 9 boxes)
+        for (int i = 0; i < 9; i++) {
+            rows[i] = new HashSet<>();
+            cols[i] = new HashSet<>();
+            boxes[i] = new HashSet<>();
+        }
+
+        // loop through every spot on the board
+        for (int r = 0; r < 9; r++) {
+            for (int c = 0; c < 9; c++) {
+                char val = board[r][c];
+
+                // ignore empty cells
+                if (val == '.') continue;
+
+                // figure out which 3x3 box we're in (0 to 8)
+                int box = (r / 3) * 3 + (c / 3);
+
+                // if we've already seen this number in the row/col/box -> invalid
+                if (rows[r].contains(val)) return false;
+                if (cols[c].contains(val)) return false;
+                if (boxes[box].contains(val)) return false;
+
+                // otherwise record it so we can catch duplicates later
+                rows[r].add(val);
+                cols[c].add(val);
+                boxes[box].add(val);
+            }
+        }
+
+        // never found a duplicate
+        return true;
+    }
+}
