@@ -23,7 +23,7 @@ LeetCode-Problems/
 | Medium | Product of Array Except Self |
 | Medium | Valid Sudoku |
 | Medium | Longest Consecutive Sequence |
-| Medium | Two Sum II - PreSorted Array |
+| Medium | Two Sum II - Pre-sorted Array |
 
 
 ## 🛠️ About
