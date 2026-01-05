@@ -16,6 +16,7 @@ LeetCode-Problems/
 | easy | Contains Duplicate |
 | easy | Valid Anagram      |
 | easy | Two Sum            |
+| easy | Valid Palindrome |
 | Medium | Group Anagrams   |
 | Medium | Top K Elements   |
 | Medium | Encode Decode Strings |
