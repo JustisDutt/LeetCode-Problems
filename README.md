@@ -24,6 +24,7 @@ LeetCode-Problems/
 | Medium | Valid Sudoku |
 | Medium | Longest Consecutive Sequence |
 | Medium | Two Sum II - Pre-sorted Array |
+| Medium | 3Sum |
 
 
 ## 🛠️ About
