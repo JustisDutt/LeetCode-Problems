@@ -1,0 +1,28 @@
+class Solution {
+    // int maxArea =0; keep track off max area of water
+    // int left = 0;, right = height.length -1
+    // while left < right
+    // check calculate current area
+    // check against max area
+    // if height[left] < right, left++
+    // else right--
+    // return maxArea 
+
+    public int maxArea(int[] height) {
+        int maxArea = 0;
+        int left = 0;
+        int right = height.length - 1;
+
+        while (left < right) {
+            maxArea = Math.max(maxArea, (right - left) * Math.min(height[left], height[right]));
+
+            if (height[left] < height[right]) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+
+        return maxArea;        
+    }
+}
